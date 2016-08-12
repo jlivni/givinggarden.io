@@ -695,3 +695,7 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #008000;
 }
+#logo {
+ width:170px;
+ height:40px;
+}
