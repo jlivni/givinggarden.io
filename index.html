@@ -290,6 +290,16 @@
       ga('create', 'UA-82634685-1', 'auto');
       ga('send', 'pageview');
     </script>
+    <script>
+    $("form").submit(function(e){
+        e.preventDefault();//prevent the form from being submitted
+        _gaq.push(['_trackEvent', $(this).attr('name'), 'Form Submission', $('#mce-EMAIL').val(),, false]);
+        $(this).off('submit');//prevent 'this' jquery submit event recursion
+        setTimeout(function(){//delay the form submit
+            e.currentTarget.submit();//submit form after the track event had time to complete
+        }, 350);//350 ms
+    });
+    </script>
 
 </body>
 
